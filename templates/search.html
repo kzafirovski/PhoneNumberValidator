@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    {% if query %}
+        <p>
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <td>Valid</td><td>{{ query.valid}}</td>
+                    </tr>
+                    <tr>
+                        <td>Number</td><td>{{ query.number }}</td>
+                    </tr>
+                    <tr>
+                        <td>Local Format</td><td>{{ query.local_format }}</td>
+                    </tr>
+                    <tr>
+                        <td>International Format</td><td>{{ query.international_format }}</td>
+                    </tr>
+                    <tr>
+                        <td>Country Prefix</td><td>{{ query.country_prefix }}</td>
+                    </tr>
+                    <tr>
+                        <td>Country Code</td><td>{{ query.country_code }}</td>
+                    </tr>
+                    <tr>
+                        <td>Country Name </td><td>{{ query.country_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Location </td><td>{{ query.location}}</td>
+                    </tr>
+                    <tr>
+                        <td>Carrier </td><td>{{ query.carrier}}</td>
+                    </tr>
+                    <tr>
+                        <td>Line Type </td><td>{{ query.line_type}}</td>
+                    </tr>
+                </thead>
+            </table>
+        </p>
+
+        <!-- Record Entry Button -->
+        <form action="/record" method="post">
+            <input type="hidden" name="valid" value="{{ query.valid }}">
+            <input type="hidden" name="number" value="{{ query.number }}">
+            <input type="hidden" name="local_format" value="{{ query.local_format }}">
+            <input type="hidden" name="international_format" value="{{ query.international_format }}">
+            <input type="hidden" name="country_prefix" value="{{ query.country_prefix }}">
+            <input type="hidden" name="country_code" value="{{ query.country_code }}">
+            <input type="hidden" name="country_name" value="{{ query.country_name }}">
+            <input type="hidden" name="location" value="{{ query.location }}">
+            <input type="hidden" name="carrier" value="{{ query.carrier }}">
+            <input type="hidden" name="line_type" value="{{ query.line_type }}">
+            <button class="btn btn-success" type="submit">Record Entry</button>
+        </form>
+    {% else %}
+        <form action="/search", method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus required class="form-control" name="number" placeholder="Phone Number" type="text">
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    {% endif %}
+{% endblock %}

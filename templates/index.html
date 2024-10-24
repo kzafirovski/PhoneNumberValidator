@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Phone Numbers Validator
+{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1>Phone Numbers Validator</h1>
+        <p class="lead">
+            Easily validate and manage phone numbers with our tool. Whether you're checking the accuracy of a single number or organizing a large list, our validator quickly verifies the country, format, and validity of any phone number. Start by entering a number or browse through your records, and let us handle the rest. Keep your contacts accurate and up-to-date with just a few clicks!
+        </p>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Get Started</h5>
+            <p class="card-text">
+                Use the menu above to validate a number or view your saved records.
+            </p>
+            <a href="/search" class="btn btn-primary">Validate a Number</a>
+            <a href="/phonebook" class="btn btn-secondary ml-2">View Records</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
